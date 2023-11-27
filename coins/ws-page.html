@@ -21,8 +21,7 @@
     socket.onmessage = function (e) {
         let data = JSON.parse(e.data);
         console.log("Data: ", data);
-
-        // Update the DOM to display the received data
+        
         let outputDiv = document.getElementById("output");
         outputDiv.innerHTML = "Received Data: " + JSON.stringify(data);
     };

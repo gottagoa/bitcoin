@@ -1,8 +1,6 @@
 from django.db import models
 import django.utils.timezone
 from typing import Any
-
-    
     
 class CryptoPrice(models.Model):
     symbol = models.CharField('Name', unique=True, max_length=100)
