@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  bitcoin:
+    container_name: bitcoin
+    restart: always
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile
+    command: run
+    volumes:
+      - .:/app/
+      - ./app/coins/static:/app/static
+    env_file:
+      - .env
+    ports:
+      - 127.0.0.1:8000:8000
+    expose:
+      - 8000
