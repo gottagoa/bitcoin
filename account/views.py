@@ -40,6 +40,6 @@ class ChangePasswordView(APIView):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, request.user)
-            return Response({'message':'The password has been succesfully changed'}, status=status.HTTP_200_OK)
+            return Response({'message':'The password has been succesfully changed!'}, status=status.HTTP_200_OK)
         else:
             return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
