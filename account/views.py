@@ -20,7 +20,7 @@ class UserRegistrationView(APIView):
             user=serializer.save()
             user.set_password(serializer.validated_data['password'])
             user.save()
-            return Response({'message':'User was succesfully created'}, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
 
 
