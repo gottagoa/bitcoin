@@ -1,3 +1,4 @@
+
 from rest_framework import serializers
 from .models import User
 
@@ -5,7 +6,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     password = serializers.CharField()
     
-
     class Meta:
         model=User
         exclude=('is_staff', 'is_active', 'is_superuser', 'date_joined')
@@ -23,4 +23,15 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         fields=["first_name", "last_name", "birthday", "email", "mobile", "avatar"]
 
 
-
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = [
+            'id',
+            'email',
+            'first_name',
+            'last_name',
+            'username',
+            'birthday',
+            'mobile'
+        ]
